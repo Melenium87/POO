@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/Ejercicio1/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Ejercicio2/Ejercicio2/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Ejercicio2/Ejercicio2/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Ejercicio2/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Ejercicio3/Ejercico3/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Ejercicio4/Ejercicio4/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Ejercicio5/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Ejercicio6/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Ejercicio7/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Ejercicio8/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Ejercicio9/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Ejercicio10/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Ejercicio11/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Ejercicio12/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Ejercicio13/src" isTestSource="false" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MAVEN_REPOSITORY$/org/jetbrains/annotations/24.0.0/annotations-24.0.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+  </component>
+</module>
