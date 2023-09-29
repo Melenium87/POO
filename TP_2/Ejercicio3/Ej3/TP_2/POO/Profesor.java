@@ -13,6 +13,11 @@ public class Profesor {
         this.apellido= apellido;
         this.nombre=nombre;
     }
+
+    public String getDni() {
+        return dni;
+    }
+
     public void calcularPaga(){
         Integer monto=0;
         System.out.println("******************************************************");

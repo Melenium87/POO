@@ -13,6 +13,9 @@ public class Credencial {
         id = generarId();
     }
 
+    public Comision getComision() {
+        return comision;
+    }
 
     public  void regAsistencia(){
         comision.regAsistencia(this);

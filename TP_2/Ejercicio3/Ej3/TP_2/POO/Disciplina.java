@@ -1,6 +1,7 @@
 package Ej3.TP_2.POO;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Disciplina {
     private String nombre;
@@ -31,6 +32,11 @@ public class Disciplina {
             asistTotales++;
         }
     }
+
+    public String getNombre() {
+        return nombre;
+    }
+
     public void reiniciarAsistencias(){
         asistTotales=0;
         for (Comision c:comisiones){
@@ -43,6 +49,17 @@ public class Disciplina {
         comisiones.add(com);
         tutor.asignarComision(com);
         nroComs++;
+    }
+    public Comision buscarComision(Integer comision){
+        if(comisiones.isEmpty()){
+            return null;
+        }
+        for (Comision c:comisiones){
+            if (Objects.equals(c.getId(), nombre + "_" + comision.toString())){
+                return c;
+            }
+        }
+        return null;
     }
 
     public int getAsistTotales() {

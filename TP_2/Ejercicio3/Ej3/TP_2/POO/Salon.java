@@ -5,4 +5,8 @@ public class Salon {
     public Salon(String id){
         this.id=id;
     }
+
+    public String getId() {
+        return id;
+    }
 }

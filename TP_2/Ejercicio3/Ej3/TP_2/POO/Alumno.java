@@ -13,7 +13,21 @@ public class Alumno {
         this.apellido= apellido;
         this.nombre=nombre;
     }
-    public void inscrbiir(Disciplina d,Comision c){
+
+    public String getDni() {
+        return dni;
+    }
+    public Boolean registrarAsist(Comision c){
+        for (Credencial cre:credenciales){
+            if(cre.getComision()==c){
+                cre.regAsistencia();
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void inscrbiir(Alumno alumno, Disciplina d, Comision c){
         Credencial credencial=new Credencial(c,d);
         d.inscribir(credencial,this);
         c.nuevoAlumno(credencial);
