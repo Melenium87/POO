@@ -3,6 +3,19 @@
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
     <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/TP_2/Ejercicio-1" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/TP_2/Ejercicio-10" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/TP_2/Ejercicio-11" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/TP_2/Ejercicio-12" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/TP_2/Ejercicio-13" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/TP_2/Ejercicio-2" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/TP_2/Ejercicio-3" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/TP_2/Ejercicio-4" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/TP_2/Ejercicio-5" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/TP_2/Ejercicio-6" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/TP_2/Ejercicio-7" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/TP_2/Ejercicio-8" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/TP_2/Ejercicio-9" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/TP_2/Ejercicio3" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
