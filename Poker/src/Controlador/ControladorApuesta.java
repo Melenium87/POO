@@ -31,7 +31,9 @@ public class ControladorApuesta {
         vista.setImagenes(modelo.mostrarImagenesDeCartas());
         vista.setNombre(modelo.getNombre());
         vista.apostar();
+        while (apuesta==-1000){
 
+        }
         int apuestaRecibida=apuesta;
         apuesta=-1000;
         return apuestaRecibida;
