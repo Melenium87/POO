@@ -17,6 +17,7 @@
       <sourceFolder url="file://$MODULE_DIR$/TP_2/Ejercicio-8" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/TP_2/Ejercicio-9" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/TP_2/Ejercicio3" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Poker/src" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

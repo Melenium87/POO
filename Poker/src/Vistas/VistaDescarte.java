@@ -4,6 +4,10 @@
  */
 package Vistas;
 
+import Controlador.ControladorDescarte;
+
+import java.util.ArrayList;
+
 /**
  *
  * @author ciro_
@@ -13,6 +17,21 @@ public class VistaDescarte extends javax.swing.JFrame {
     /**
      * Creates new form VistaDescarte
      */
+    private ControladorDescarte controlador;
+
+    public void setControlador(ControladorDescarte controlador) {
+        this.controlador = controlador;
+    }
+
+    public void setImagenes(ArrayList<String> direcciones) {
+
+        imgCarta1.setIcon(new javax.swing.ImageIcon(direcciones.get(0)));
+        imgCarta2.setIcon(new javax.swing.ImageIcon(direcciones.get(1)));
+        imgCarta3.setIcon(new javax.swing.ImageIcon(direcciones.get(2)));
+        imgCarta4.setIcon(new javax.swing.ImageIcon(direcciones.get(3)));
+        imgCarta5.setIcon(new javax.swing.ImageIcon(direcciones.get(4)));
+    }
+
     public VistaDescarte() {
         initComponents();
     }
@@ -295,7 +314,35 @@ public class VistaDescarte extends javax.swing.JFrame {
     }
 
     private void botonFinalizarActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+        ArrayList<Integer> cartasSeleccionadas=new ArrayList<>();
+        if(descarteCarta1.isSelected()){
+            cartasSeleccionadas.add(1);
+        }
+        else cartasSeleccionadas.add(0);
+        if(descarteCarta2.isSelected()){
+            cartasSeleccionadas.add(1);
+        }
+        else cartasSeleccionadas.add(0);
+        if(descarteCarta3.isSelected()){
+            cartasSeleccionadas.add(1);
+        }
+        else cartasSeleccionadas.add(0);
+        if(descarteCarta4.isSelected()){
+            cartasSeleccionadas.add(1);
+        }
+        else cartasSeleccionadas.add(0);
+        if(descarteCarta5.isSelected()){
+            cartasSeleccionadas.add(1);
+        }
+        else cartasSeleccionadas.add(0);
+        controlador.recibirDescartes(cartasSeleccionadas);
+        this.setVisible(false);
+        descarteCarta1.setSelected(false);
+        descarteCarta2.setSelected(false);
+        descarteCarta3.setSelected(false);
+        descarteCarta4.setSelected(false);
+        descarteCarta5.setSelected(false);
+
     }
 
     /**

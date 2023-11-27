@@ -5,6 +5,8 @@
 package Vistas;
 
 import Controlador.ControladorApuesta;
+import Modelo.PokerSinComodin.Notificador;
+import Modelo.PokerSinComodin.Observado;
 
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
@@ -15,7 +17,7 @@ import java.util.Objects;
  *
  * @author ciro_
  */
-public class VistaApuesta extends javax.swing.JFrame {
+public class VistaApuesta extends javax.swing.JFrame implements Observer {
 
     /**
      * Creates new form VistaApuesta
@@ -23,18 +25,26 @@ public class VistaApuesta extends javax.swing.JFrame {
     public VistaApuesta() {
         initComponents();
     }
-    private boolean apuestaHecha;
+
     private Integer apuestaMin;
     private Integer fichas;
     private ControladorApuesta controlador;
     private String nombre;
 
-    private int ultimaApuestaRealizada=200;
-    public void setApuestaMin(int apuestaMin){
-        this.apuestaMin=apuestaMin;
-        apuestaActualTexto.setText(""+apuestaMin);
-        botonPasar.setEnabled(apuestaMin == ultimaApuestaRealizada);
+    private Integer totalApostado;
+
+    @Override
+    public void update() {
+        AreaEventos.setText(controlador.recibirMensaje()); ;
+
     }
+    public void setApuestas(Integer apuestaMin,Integer totalApostado){
+        this.apuestaMin=apuestaMin;
+        this.totalApostado=totalApostado;
+        apuestaActualTexto.setText(""+apuestaMin);
+        botonPasar.setEnabled(apuestaMin == totalApostado);
+    }
+
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
@@ -64,7 +74,8 @@ public class VistaApuesta extends javax.swing.JFrame {
 
     public void apostar(){
         jPanel2.setVisible(true);
-
+        botonPasar.setEnabled(Objects.equals(apuestaMin, totalApostado));
+        update();
     }
 
     /**
@@ -455,19 +466,21 @@ public class VistaApuesta extends javax.swing.JFrame {
     }// </editor-fold>
 
     private void botonPasarActionPerformed(java.awt.event.ActionEvent evt) {
-        apuestaHecha=true;
+
         controlador.recibirApuesta(0);
+        jPanel2.setVisible(false);
     }
 
     private void botonIgualarActionPerformed(java.awt.event.ActionEvent evt) {
-        ultimaApuestaRealizada=apuestaMin;
-        apuestaHecha=true;
-        controlador.recibirApuesta(apuestaMin);
+
+
+        controlador.recibirApuesta((apuestaMin-totalApostado));
+        totalApostado=apuestaMin;
         textoApuesta.setText("Cantidad");
         jPanel2.setVisible(false);
     }
     private void botonRetirarseActionPerformed(java.awt.event.ActionEvent evt) {
-        apuestaHecha=true;
+
         controlador.recibirApuesta(-1);
         textoApuesta.setText("Cantidad");
         jPanel2.setVisible(false);
@@ -479,9 +492,8 @@ public class VistaApuesta extends javax.swing.JFrame {
         String apuesta= textoApuesta.getText();
         if (!Objects.equals(apuesta, "") && !Objects.equals(apuesta, "Cantidad")){
             int numero=Integer.parseInt(apuesta);
-            if(numero>=apuestaMin){
-                ultimaApuestaRealizada=numero;
-                apuestaHecha=true;
+            if(totalApostado+numero>=apuestaMin){
+                totalApostado+=numero;
                 controlador.recibirApuesta(numero);
                 fichas-=numero;
                 textoApuesta.setText("Cantidad");
@@ -576,5 +588,7 @@ public class VistaApuesta extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField textoApuesta;
     private javax.swing.JLabel textoTurno;
+
+
     // End of variables declaration
 }

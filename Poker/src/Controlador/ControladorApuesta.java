@@ -18,14 +18,19 @@ public class ControladorApuesta {
     public void ocultar(){
         vista.ocultarjPanel2();
     }
+
+    public String recibirMensaje(){
+    return modelo.getNotificador().getState();
+    }
     public int apostar(int apuestaMin,int fichas){
         if (vista==null){
             vista=new VistaApuesta();
             vista.setControlador(this);
+            modelo.agregarMiron(vista);
         }
 
 
-        vista.setApuestaMin(apuestaMin);
+        vista.setApuestas(apuestaMin,modelo.getTotalApostado());
         vista.setCantidadeFichas(modelo.verFichas());
         vista.setVisible(true);
         vista.setImagenes(modelo.mostrarImagenesDeCartas());
