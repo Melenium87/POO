@@ -1,5 +1,7 @@
 package Modelo.PokerSinComodin;
 
+import Vistas.Observer;
+
 import java.util.ArrayList;
 
 
@@ -15,6 +17,7 @@ public class Ronda {
     private Jugador jugadorAEliminar=null;
     private Jugador jugadorActual;
     private Baraja baraja=new Baraja();
+    Notificador notificador=new Notificador();
 
 
     public Ronda(ArrayList<Jugador> jugadores,Integer inicio,Integer apuestaMin){
@@ -29,9 +32,11 @@ public class Ronda {
 
 
     public void iniciar(){
+
         jugando = new ArrayList<>(jugadores);
         ArrayList<Jugador> jugadoresDescartados=new ArrayList<>();
         for (Jugador j:jugando){
+            j.setNotificador(notificador);
             if (j.apuestaMinima(apuestaMin)){
                 apuestas+=apuestaMin;
                 j.recibirCartas(baraja.repartir());
@@ -65,6 +70,40 @@ public class Ronda {
             }
         }
 
+    }
+    private void apuestas()  {
+        int contador=1;
+        hayApuesta=false;
+        while (!(contador> jugando.size())){
+            if (jugando.size()==1){
+                return;
+            }
+            int apuestaJugador=jugadorActual.apostar(apuestaActual,hayApuesta);
+            if (apuestaJugador==-1){
+                jugadorAEliminar=jugadorActual;
+                contador++;
+            }
+            else {
+
+                apuestas+=apuestaJugador;
+                if (apuestaJugador>apuestaActual){
+                    apuestaActual=apuestaJugador;
+                    hayApuesta=true;
+                    contador=1;
+                }
+                else {
+                    contador++;
+                }
+            }
+            siguienteTurno();
+        }
+
+    }
+    private void descarte(){
+        for (Jugador j:jugando){
+            int numCartasDescartadas=j.descartar();;
+            j.recibirCartas(baraja.darCartas(numCartasDescartadas));
+        }
     }
 
     private void ganador(){
@@ -152,40 +191,8 @@ public class Ronda {
         return jugadorActual;
     }
 
-    private void apuestas()  {
-        int contador=1;
-        hayApuesta=false;
-        while (!(contador== jugando.size())){
-            if (jugando.size()==1){
-                return;
-            }
-            int apuestaJugador=jugadorActual.apostar(apuestaActual,apuestas,hayApuesta);
-            if (apuestaJugador==-1){
-                jugadorAEliminar=jugadorActual;
-                contador++;
-            }
-            else {
 
-                apuestas+=apuestaJugador;
-                if (apuestaJugador>apuestaActual){
-                    apuestaActual=apuestaJugador;
-                    hayApuesta=true;
-                    contador=1;
-                }
-                else {
-                    contador++;
-                }
-            }
-            siguienteTurno();
-        }
 
-    }
-    private void descarte(){
-        for (Jugador j:jugando){
-            int numCartasDescartadas=j.descartar();
-            j.recibirCartas(baraja.darCartas(numCartasDescartadas));
-        }
-    }
 
 
 
